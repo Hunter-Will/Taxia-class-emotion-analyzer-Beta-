@@ -1,0 +1,1 @@
+This is a freshman-one-year project made by a couple of students from Harbin Institute of Technology(WeiHai). It is a robot used to analyze emotions of human. This is our first project, we are trying to achieve our goal.
