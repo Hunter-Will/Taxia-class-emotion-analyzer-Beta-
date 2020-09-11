@@ -20,6 +20,17 @@ def newmodel(fname,vsize=500,mcnt=2,epch=20):
     print("Training finished")
     model.save("./Doc2Vec")
     return model
+
 def retrain(fname,vsize=500,mcnt=2,epch=20):
     train_data=list(read_corpus(fname))
-    model=gensim.models.doc2vec.Doc2Vec
+    try:
+        model=gensim.models.load("./Doc2Vec")    
+    except:
+        model=newmodel("./Data/model_data/default.dat")
+    finally:
+        train_data=list(read_corpus(fname))
+        model.build_vocab(train_data,update=True)
+        print("Training...")
+        model.train(train_data,total_examples=model.corpus_count,epochs=model.epochs)
+        print("Training finished")
+        model.save("./Doc2Vec")

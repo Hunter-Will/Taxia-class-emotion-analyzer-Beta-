@@ -1,6 +1,7 @@
 from chatterbot.logic import LogicAdapter
 from chatterbot import filters
 from Sentiment import SentiCmp
+from chatterbot.conversation import Statement
 
 class BasicAdapter(LogicAdapter):
     def __init__(self,chatbot,**kwargs):
@@ -14,7 +15,7 @@ class BasicAdapter(LogicAdapter):
     def get_default_response(self,input_statement):
         with open("./Data/default_resp.dat","r") as f:
             from random import choice
-            resp=choice(f.readlines())
+            resp=Statement(choice(f.readlines()))
         resp.confidence=0
         return resp
     
