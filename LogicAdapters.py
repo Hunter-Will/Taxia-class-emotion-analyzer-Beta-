@@ -15,7 +15,7 @@ class BasicAdapter(LogicAdapter):
     def get_default_response(self,input_statement):
         with open("./Data/default_resp.dat","r") as f:
             from random import choice
-            resp=Statement(choice(f.readlines()))
+            resp=Statement(choice(f.readlines()).strip('\n'))
         resp.confidence=0
         return resp
     

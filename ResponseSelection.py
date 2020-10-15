@@ -4,8 +4,11 @@ from random import choice
 CONLIMIT=0.9
 
 def sentiment_response(input_statement,respslist):
-    f=open("./Data/emotion.dat","r")
-    vec=list(f.read().split())
+    f=open("./Data/SelfEom","r")
+    tmp=list(f.read().split())
+    vec=[]
+    for i in tmp:
+        vec.append(float(i))
     f.close()
     resv=VEC0
     res=input_statement
